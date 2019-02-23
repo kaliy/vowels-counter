@@ -60,6 +60,15 @@ public class FileSourceTest {
     }
 
     @Test
+    void treatsWordsWithApostrophesAsTwoSeparateWords() throws IOException {
+        writeToTestFile("what's");
+
+        FileSource source = new FileSource(mockFs, FILENAME);
+
+        assertThat(source.createSource().collect(Collectors.toSet())).containsOnly("what", "s");
+    }
+
+    @Test
     void throwsAnExceptionIfFileIsNotFound() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() ->
                 new FileSource(mockFs, "Random.txt")
