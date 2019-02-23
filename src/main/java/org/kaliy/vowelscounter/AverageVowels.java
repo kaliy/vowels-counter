@@ -5,9 +5,9 @@ import java.util.StringJoiner;
 
 public class AverageVowels {
     private final Word wordVowels;
-    private final int averageNumber;
+    private final double averageNumber;
 
-    public AverageVowels(Word wordVowels, int averageNumber) {
+    public AverageVowels(Word wordVowels, double averageNumber) {
         this.wordVowels = wordVowels;
         this.averageNumber = averageNumber;
     }
@@ -16,7 +16,7 @@ public class AverageVowels {
         return wordVowels;
     }
 
-    public int getAverageNumber() {
+    public double getAverageNumber() {
         return averageNumber;
     }
 

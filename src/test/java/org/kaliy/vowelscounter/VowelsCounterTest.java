@@ -35,4 +35,33 @@ class VowelsCounterTest {
                 new Word(Sets.newHashSet('a', 'i', 'u'), 7), 3
         ));
     }
+
+    @Test
+    void calculatesAverageInTwoWords() {
+        Stream<AverageVowels> result = vowelsCounter.countVowels(Stream.of("bamboo", "platon"));
+        assertThat(result).containsOnly(new AverageVowels(
+                new Word(Sets.newHashSet('a', 'o'), 6), 2.5f
+        ));
+    }
+
+    @Test
+    void calculatesAverageInMultipleWords() {
+        Stream<AverageVowels> result = vowelsCounter.countVowels(Stream.of("WaWoWeW", "aaaoooe", "aaWooWe"));
+        assertThat(result).containsOnly(new AverageVowels(
+                new Word(Sets.newHashSet('a', 'o', 'e'), 7), 5f //(3+7+5)/3=5
+        ));
+    }
+
+    @Test
+    void calculatesAverageForMultipleWordsWithDifferentVowelsNumber() {
+        Stream<String> inputStream = Stream.of("AAWOOWE", "bamboo", "WaWoWeW", "platon", "Pikachu", "aaaoooe");
+
+        Stream<AverageVowels> result = vowelsCounter.countVowels(inputStream);
+
+        assertThat(result).containsOnly(
+                new AverageVowels(new Word(Sets.newHashSet('a', 'o', 'e'), 7), 5f),
+                new AverageVowels(new Word(Sets.newHashSet('a', 'o'), 6), 2.5f),
+                new AverageVowels(new Word(Sets.newHashSet('a', 'i', 'u'), 7), 3)
+        );
+    }
 }
