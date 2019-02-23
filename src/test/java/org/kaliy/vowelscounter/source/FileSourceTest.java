@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-class FileSourceTest {
+public class FileSourceTest {
     private FileSystem mockFs = Jimfs.newFileSystem(Configuration.unix());
     private static final String FILENAME = "pikachu.txt";
 

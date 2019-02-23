@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class VowelsCounterTest {
+public class VowelsCounterTest {
 
     private VowelsCounter vowelsCounter = new VowelsCounter();
 
