@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.kaliy</groupId>
-    <artifactId>vowelscounter</artifactId>
+    <artifactId>vowels-counter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
